@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT</title>
+    <style>
+        /* ... your existing styles ... */
+
+        /* Animation styles */
+        @keyframes star-animation {
+            0% {
+                transform: rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: rotate(180deg) scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-star {
+            animation: star-animation 2s linear;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sidebar = document.querySelector('.sidebar');
+            var mainContainer = document.querySelector('.main-container');
+
+            sidebar.classList.add('animate-star');
+            mainContainer.classList.add('animate-star');
+
+            setTimeout(function() {
+                sidebar.classList.remove('animate-star');
+                mainContainer.classList.remove('animate-star');
+            }, 2000);
+        });
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="./logo.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/aleritfy.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        a {
+            text-decoration: none;
+        }
+        body {
+            margin: 0px;
+            background-color: #343541;
+            color: #ececf1;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #202123;
+            width: 13.25rem;
+            position: sticky;
+            height: 100%;
+            padding: 0.5rem;
+            top: 0px;
+            left: 0px;
+        }
+        .btn-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        .btn {
+            padding: 0rem 0.45rem;
+            font-size: 0.8rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            background-color: transparent;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #ececf1;
+            flex: 1;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2b2c2f;
+            transition: all 0.2s;
+        }
+        .sidebar-btn {
+            justify-content: center !important;
+            flex: 0.2;
+            margin-left: 0.5rem;
+        }
+        .today {
+            font-size: 0.65rem;
+            color: #8e8e9f;
+            font-weight: 500;
+        }
+        .chat-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0rem 0.75rem;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            margin-bottom: -0.5rem;
+        }
+        .chat-item:hover {
+            background-color: #2b2c2f;
+            transition: all 0.2s;
+        }
+        .profile-div {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 300;
+            border-top: 1px solid #555;
+            position: fixed;
+            bottom: 0rem;
+            width: 13rem;
+            margin: auto;
+            padding: 0.5rem 0rem;
+        }
+        .profile-img {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        /* 1rem = 16px; */
+        .main-container {
+            text-align: center;
+            padding: 0.5rem;
+            position: absolute;
+            bottom: 0rem;
+            left: 35%;
+        }
+        .input-flex {
+            width: 120%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #40414f;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin: 1rem auto;
+        }
+        .input-flex input {
+            background-color: #40414f;
+            border: 0;
+            color: #ececf1;
+            font-family: "Roboto", "sans-serif";
+            width: 100%;
+            padding: 0.5rem 0rem;
+            margin-right: 1rem;
+        }
+        .input-flex input:focus {
+            outline: none;
+        }
+        .input-flex input::placeholder,
+        .footer-text {
+            color: #8e8e9f;
+        }
+        .footer-text {
+            font-size: 0.8rem;
+            text-align: center;
+            margin-left: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="{% static '/js/jquery-3.6.3.min.js' %}"></script>
+    <script src="{% static '/js/custom.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <div class="sidebar">
+        <div class="btn-flex">
+            <button class="btn">
+                <i data-feather="plus" style="width: 1rem"></i>
+                <p>New Chat</p>
+            </button>
+            <button class="btn sidebar-btn">
+                <i data-feather="sidebar" style="width: 1rem"></i>
+            </button>
+        </div>
+        <div style="margin: 0.5rem; margin-left: 0">
+            <p class="today" style="margin: 1rem 0.5rem; margin-bottom: 0px">Today</p>
+            <div class="chat-item">
+                <i data-feather="message-square" style="width: 1rem"></i>
+                <p>New Chat</p>
+            </div>
+            <div class="chat-item">
+                <i data-feather="message-square" style="width: 1rem"></i>
+                <p>Fundamentals Of CSS</p>
+            </div>
+            <div class="chat-item">
+                <i data-feather="message-square" style="width: 1rem"></i>
+                <p>Fundamentals Of HTML</p>
+            </div>
+        </div>
+        <div class="profile-div">
+            <img src="./profile_pic.jpg" class="profile-img" />
+            <p>Nagireddy.Harshavardhan Reddy</p>
+            <i data-feather="more-horizontal" style="width: 1rem; margin-left: auto"></i>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="input-flex">
+            <input placeholder="Send a message" />
+            <i data-feather="send" style="width: 1rem"></i>
+        </div>
+        <p class="footer-text">ChatGPT may produce inaccurate information about people, places, or facts. ChatGPT May 24 Version</p>
+    </div>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
